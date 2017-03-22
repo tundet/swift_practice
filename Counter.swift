@@ -1,63 +1,63 @@
-import Foundation
+/* Create a Counter class that gets initialized with minimum
+and maximum values and possibly an initial value.
+Counter can be incremented and decremented in range
+min...max, and its value can be retrieved. Counter can
+also be reset, returning it back to its initial value. Counter
+value type is Int.
+Try out your counter with different initial values and usage
+(method call) sequences. Pay attention to always
+checking the values for validity.
+*/
 
-class Person {
-    private var name: String
-    private var height: Double?
-    private var weight: Double?
+class Counter {
+    private var initnum: Int
+    private var num: Int
+    private var maxnum: Int
+    private var minnum: Int
     
-    init(name: String) {
-        self.name = name
+    public init(num: Int, minnum: Int, maxnum: Int) {
+        self.num = num
+        self.initnum = num
+        self.maxnum = maxnum
+        self.minnum = minnum
     }
     
-    func getName() {
-        print("name: \(self.name)")
-    }
-    
-    func getHeight() {
-        if(self.height == nil){
-         print("set values first")
-         }else{
-         print("\(self.name)'s height: \(self.height)")
-        }
-    }
-    
-    func setHeight(height: Double) {
-        if (height > 200 || height < 140) {
-            print("incorrect value")
+    func increment() {
+        if (self.num == self.maxnum) {
+            print("maximum reached")
         } else {
-            self.height = height
+            self.num += 1
+            print("incremented. value: \(self.num)")
         }
     }
     
-    func getWeight() {
-        print("\(self.name)'s weight: \(self.weight)")
-    }
-    
-    func setWeight(weight: Double) {
-        if (weight > 200 || weight < 30) {
-            print("incorrect value")
+    func decrement() {
+        if (self.num == self.minnum) {
+            print("minimum reached")
         } else {
-            self.weight = weight
+            self.num -= 1
+            print("decremented. value: \(self.num)")
         }
     }
     
-    func getBMI() {
-        if (self.height != nil && self.weight != nil) {
-            let bmi = self.weight! / (self.height! * 2) * 100
-            print("bmi: \(bmi)")
-        } else {
-            print("values missing")
-        }
+    func reset() {
+        self.num = self.initnum
+        print("reset. value: \(self.num)")
+    }
+    func getnum(){
+        print("value: \(self.num)")
     }
 }
 
-var i = 6
+var c1 = Counter(num: 5, minnum: 2, maxnum: 7)
+c1.getnum()
+c1.increment()
+c1.increment()
+c1.increment()
+c1.reset()
 
-var p1 = Person(name: "matti")
-p1.getHeight()
-p1.setHeight(height: 170)
-p1.getHeight()
-p1.setWeight(weight: 60)
-p1.getWeight()
-p1.getBMI()
-p1.setHeight(height: 300)
+var c2 = Counter(num: 3, minnum: 2, maxnum: 7)
+c2.getnum()
+c2.decrement()
+c2.decrement()
+c2.reset()
