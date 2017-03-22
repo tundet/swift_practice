@@ -8,73 +8,57 @@ value type is Int.
 • Try out your counter with different initial values and usage
 (method call) sequences. Pay attention to always
 checking the values for validity.
-*/
+*/import Foundation
+
 class Counter {
-	private var min: Int
-	private var max: Int
-	let setmin: Int
-	let setmax: Int
-
-	init(setmin: Int, setmax: Int) {
-		self.min = 0
-		self.max = 5
-		self.setmin = setmin
-		self.setmax = setmax
-	}
-
-	convenience init() {
-		self.init(setmin: 0, setmax: 5)
-	}
-
-	func reset(){
-		self.min = 0
-		self.max = 5
-		print("Reseted, values are \(min) and \(max)")
-	}
-
-	func count(){
-		self.min = self.setmin
-		self.max = self.setmax
-		print("Counting from \(min) to \(max)")
-		while(min <= max) {
-			print("\(min)")
-			min += 1
-		}
-		print("End")
-	}
-	/*
-	func countLineReader(min2: Int , max2: Int){
-		self.min = min2
-		self.max = max2
-		print("Counting from \(min) to \(max)")
-		while(min <= max) {
-			print("\(min)")
-			min += 1
-		}
-		print("End")
-	}
-	
-	func bettercount(){
-		print("Give minimum value")
-		let num1 = readLine()
-		let min2 = Int(num1!)
-		print("Give maximum value")
-		let num2 = readLine()
-		let max2 = Int(num2!)
-		countLineReader(min2: min2!, max2: max2!)
-	}
-	*/
+    private var initnum: Int
+    private var num: Int
+    private var maxnum: Int
+    private var minnum: Int
+    
+    public init(num: Int, minnum: Int, maxnum: Int) {
+        self.num = num
+        self.initnum = num
+        self.maxnum = maxnum
+        self.minnum = minnum
+    }
+    
+    func increment() {
+        if (self.num == self.maxnum) {
+            print("maximum reached")
+        } else {
+            self.num += 1
+            print("incremented. value: \(self.num)")
+        }
+    }
+    
+    func decrement() {
+        if (self.num == self.minnum) {
+            print("minimum reached")
+        } else {
+            self.num -= 1
+            print("decremented. value: \(self.num)")
+        }
+    }
+    
+    func reset() {
+        self.num = self.initnum
+        print("reset. value: \(self.num)")
+    }
+    func getnum(){
+        print("value: \(self.num)")
+    }
 }
 
-var c1 = Counter()
-// convenience init counting from 0-5
-c1.count()
-// asks for values
-//c1.bettercount()
+var c1 = Counter(num: 5, minnum: 2, maxnum: 7)
+c1.getnum()
+c1.increment()
+c1.increment()
+c1.increment()
+c1.reset()
 
-// set values
-let c2 = Counter(setmin:2, setmax:10)
-c2.count()
-
-//reset
+var c2 = Counter(num: 3, minnum: 2, maxnum: 7)
+c2.getnum()
+c2.decrement()
+c2.decrement()
 c2.reset()
