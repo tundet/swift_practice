@@ -1,0 +1,30 @@
+/*Create a mutable data structure that associates a car registerid
+ (String) with a driver name (String).
+ Initialize the data structure with at least four elements.
+ Print all driver names in the data structure using an iteration.
+ Print register id for all cars in the data structure using iteration.
+ Print register id for all cars in the data structure in ascending order.
+ */
+
+import Foundation
+
+var cars: [String: String] = [
+    "id1": "jotaro kujo",
+    "id2": "kakyoin noriaki",
+    "id3": "jean pierre polnareff",
+    "id4": "joseph joestar"
+]
+
+for (id, driver) in cars {
+    print(driver)
+}
+
+for (id, driver) in cars {
+    print(id)
+}
+
+let al = Array(cars.keys).sorted()
+
+for id in al {
+    print(id)
+}
