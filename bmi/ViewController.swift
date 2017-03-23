@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, ProtocolTest {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, MyProtocol {
     @IBOutlet weak var pickerView: UIPickerView!
     var pickerData = [[String]]()
     var pickerDataHT = Array<String>()
