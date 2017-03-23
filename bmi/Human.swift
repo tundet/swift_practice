@@ -4,7 +4,7 @@ class Human: ViewController{
     var height:Int = 0
     var weight:Int = 0
     var bmi:Double = 0.0
-    var delegate: ProtocolTest?
+    var delegate: MyProtocol?
     
     
     func calculateBMI(height:Int, weight:Int){
